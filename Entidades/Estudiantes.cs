@@ -40,6 +40,5 @@ namespace Entidades
             PuntosPerdidos = 0;
             Fecha = DateTime.Now;
         }
-
     }
 }

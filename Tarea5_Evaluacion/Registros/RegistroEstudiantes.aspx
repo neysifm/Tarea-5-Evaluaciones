@@ -9,7 +9,6 @@
 <div class="container-fluid">
 <div class="card text-center bg-light">
 
-
             <%--ID--%>
             <div class="form-group" display: inline-block>
             <div class="col-lg-6">

@@ -11,6 +11,8 @@ namespace Entidades
     {
         public static int ToInt(this string entero)
         {
+            if (entero == null)
+                return 0;
             int.TryParse(entero, out int valor);
             return valor;
         }

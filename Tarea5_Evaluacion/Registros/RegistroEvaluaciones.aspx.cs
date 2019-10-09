@@ -152,13 +152,13 @@ namespace Tarea5_Evaluacion.Registros
             Evaluaciones evaluacion = ((Evaluaciones)ViewState[KeyViewState]);
             decimal Valor = ValorTextBox.Text.ToDecimal();
             decimal Logrado = LogradoTextBox.Text.ToDecimal();
-            evaluacion.DetalleEvaluaciones.Add(new DetalleEvaluaciones(0, evaluacion.EvaluacionID, CategoriaTextBox.Text, Valor, Logrado, (Valor - Logrado)));
+            evaluacion.AgregarDetalle(0, evaluacion.EvaluacionID, CategoriaDropDownList.SelectedValue.ToInt(), Valor, Logrado, Valor - Logrado);
             ViewState[KeyViewState] = evaluacion;
-            ActualizarGrid();
             Calcular();
             CategoriaTextBox.Text = string.Empty;
-            ValorTextBox.Text = 0.ToString();
-            LogradoTextBox.Text = 0.ToString();
+            ValorTextBox.Text = string.Empty;
+            LogradoTextBox.Text = string.Empty;
+            ActualizarGrid();
         }
 
         private void Calcular()
@@ -179,6 +179,15 @@ namespace Tarea5_Evaluacion.Registros
             evaluacion.DetalleEvaluaciones.ForEach(x => x.Categoria = new RepositorioBase<Categorias>().Buscar(x.CategoriaID).Descripcion);
             DetalleGridView.DataSource = evaluacion.DetalleEvaluaciones;
             DetalleGridView.DataBind();
+        }
+
+        protected void RemoverDetalleClick_Click(object sender, EventArgs e)
+        {
+            Evaluaciones evaluacion = (Evaluaciones)ViewState[KeyViewState];
+            GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
+            evaluacion.RemoverDetalle(row.RowIndex);
+            ViewState[KeyViewState] = evaluacion;
+            ActualizarGrid();
         }
 
         private void LlenarCombo()

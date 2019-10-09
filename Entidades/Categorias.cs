@@ -11,14 +11,14 @@ namespace Entidades
     public class Categorias
     {
         [Key]
-        public int CategoriaId { get; set; }
+        public int CategoriaID { get; set; }
         public string Descripcion { get; set; }
         public decimal PromedioPerdida { get; set; }
         public DateTime Fecha { get; set; }
 
-        public Categorias(int categoriaId, string descripcion, decimal promedioPerdida, DateTime fecha)
+        public Categorias(int categoriaID, string descripcion, decimal promedioPerdida, DateTime fecha)
         {
-            CategoriaId = categoriaId;
+            CategoriaID = categoriaID;
             Descripcion = descripcion;
             PromedioPerdida = promedioPerdida;
             Fecha = fecha;
@@ -26,7 +26,7 @@ namespace Entidades
 
         public Categorias()
         {
-            CategoriaId = 0;
+            CategoriaID = 0;
             Descripcion = string.Empty;
             PromedioPerdida = 0;
             Fecha = DateTime.Now;

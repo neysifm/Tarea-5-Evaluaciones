@@ -14,17 +14,17 @@ namespace Entidades
         [Key]
         public int EvaluacionID { get; set; }
         public DateTime Fecha { get; set; }
-        public int EstudianteId { get; set; }
-        [ForeignKey("EstudianteId")]
+        public int EstudianteID { get; set; }
+        [ForeignKey("EstudianteID")]
         public virtual Estudiantes Estudiantes { get; set; }
         public decimal TotalPerdido { get; set; }
         public virtual List<DetalleEvaluaciones> DetalleEvaluaciones { get; set; }
 
-        public Evaluaciones(int evaluacionID, DateTime fecha, int estudianteId, Estudiantes estudiantes, decimal totalPerdido)
+        public Evaluaciones(int evaluacionID, DateTime fecha, int estudianteID, Estudiantes estudiantes, decimal totalPerdido)
         {
             EvaluacionID = evaluacionID;
             Fecha = fecha;
-            EstudianteId = estudianteId;
+            EstudianteID = estudianteID;
             Estudiantes = estudiantes;
             TotalPerdido = totalPerdido;
             DetalleEvaluaciones = new List<DetalleEvaluaciones>();
@@ -34,7 +34,7 @@ namespace Entidades
         {
             EvaluacionID = 0;
             Fecha = DateTime.Now;
-            EstudianteId = 0;
+            EstudianteID = 0;
             TotalPerdido = 0;
             DetalleEvaluaciones = new List<DetalleEvaluaciones>();
         }

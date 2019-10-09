@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" 
+    AutoEventWireup="true" 
+    CodeBehind="Site.master.cs" 
+    Inherits="Tarea5_Evaluacion.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>EvaluacionesApp</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/toastr.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+		<div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<a class="navbar-brand" href="/Default.aspx">Inicio</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="/Default.aspx">Inicio <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/Registros/RegistroCategorias.aspx">Categorias</a>
+                                <a class="dropdown-item" href="/Registros/RegistroEstudiantes.aspx">Estudiantes</a>
+                                <a class="dropdown-item" href="/Registros/RegistroEvaluaciones.aspx">Evaluaciones</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/Consultas/ConsultaCategorias.aspx">Categorias</a>
+                                <a class="dropdown-item" href="/Consultas/ConsultaEstudiantes.aspx">Estudiantes</a>
+                                <a class="dropdown-item" href="/Consultas/ConsultaEvaluaciones.aspx">Evaluaciones</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="container">
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				</asp:ContentPlaceHolder>
+                <hr />
+                <footer>
+                    <p>&copy; <%: DateTime.Now.Year %> - By Neysi FM - Registro de Estudiantes - EvaluacionesApp</p>
+                </footer>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

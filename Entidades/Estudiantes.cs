@@ -12,15 +12,20 @@ namespace Entidades
     public class Estudiantes
     {
         [Key]
-        public int EstudianteId { get; set; }
+        public int EstudianteID { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
+        [NotMapped]
+        public string NombreCompleto
+        {
+            get { return $"{Nombre} {Apellido}"; }
+        }
         public decimal PuntosPerdidos { get; set; }
         public DateTime Fecha { get; set; }
 
-        public Estudiantes(int estudianteId, string nombre, string apellido, decimal puntosPerdidos, DateTime fecha)
+        public Estudiantes(int estudianteID, string nombre, string apellido, decimal puntosPerdidos, DateTime fecha)
         {
-            EstudianteId = estudianteId;
+            EstudianteID = estudianteID;
             Nombre = nombre;
             Apellido = apellido;
             PuntosPerdidos = puntosPerdidos;
@@ -29,7 +34,7 @@ namespace Entidades
 
         public Estudiantes()
         {
-            EstudianteId = 0;
+            EstudianteID = 0;
             Nombre = string.Empty;
             Apellido = string.Empty;
             PuntosPerdidos = 0;
